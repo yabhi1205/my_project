@@ -46,29 +46,30 @@
             </div>
         </div>
     </section>
-    <div class="form">
+    <div id="form" class="form">
         <div class="fill-up">
             <h1>fill up form</h1>
             <p>Please enter some details</p>
         </div>
         <table>
-            <tr>
-                <th><label for="name">name</label></th>
+            <form action="books.html">
+            <tr id="tr_naam">
+                <th><label id="label_naam" for="name">name</label></th>
                 <td>
-                    <input type="text" name="name" placeholder="first name" id="name" required>
+                    <input type="text" name="name" placeholder="first name" id="f_naam" maxlength="16" required>
                 </td>
                 <td>
-                    <input type="text" name="name" placeholder="middle name" id="name">
+                    <input type="text" name="name" placeholder="middle name" maxlength="16" id="m_naam">
                 </td>
                 <td>
-                    <input type="text" name="name" placeholder="last name" id="name" required>
+                    <input type="text" name="name" placeholder="last name" maxlength="16" id="l_naam" required>
                 </td>
             </tr>
             <tr>
-                <th><label for="roll">roll no.</label></th>
-                <td><input type="numeric" name="roll" placeholder="Please enter roll number" id="roll" required></td>
-                <th><label for="library">library card id</label></th>
-                <td><input type="text" name="library" placeholder="please enter library card id" id="library" required>
+                <th id="tr_roll"><label id="label_roll" for="roll">roll no.</label></th>
+                <td id="tr_roll"><input type="numeric" name="roll" placeholder="Please enter roll number" maxlength="13" id="roll" minlength="13" required></td>
+                <th id="tr_library"><label id="label_library" for="library">library card id</label></th>
+                <td id="tr_libary"><input type="text" name="library" placeholder="please enter library card id" maxlength="7" minlength="7" id="library" required>
                 </td>
             </tr>
             <tr>
@@ -87,10 +88,10 @@
                         <option value="8">8</option>
                     </select>
                 </td>
-                <th>
-                    <label for="branch">branch</label>
+                <th id="tr_branch">
+                    <label id="label_branch" for="branch">branch</label>
                 </th>
-                <td>
+                <td id="tr_branch">
                     <div class="select">
                         <select name="branch" id="branch" required>
                             <option value="" selected disabled>Please Choose One</option>
@@ -109,7 +110,7 @@
             </tr>
             <tr>
                 <td>
-                    <button type="reset">reset</button>
+                    <button type="reset" onclick="confirm(' Do you really want to reset the form?')">reset</button>
                 </td>
                 <td>
                     <button type="submit" id="add">submit</button>

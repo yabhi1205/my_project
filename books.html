@@ -8,68 +8,137 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <title>books</title>
+    <link rel="stylesheet" href="css/books.css">
+    <title>Book Store</title>
 </head>
 
 <body>
-    <header>
-        <div class="icons">
-            <div class="branding">
-                <h1>Abhinav Yadav</h1>
+    <section class="upper_part">
+            <div class="icons">
+                <div class="branding">
+                    <h1>Abhinav Yadav</h1>
+                </div>
+                <div class="nav-bar">
+                    <a href="home.html">home</a>
+                    <a href="about.html" target="blank">about</a>
+                    <a id="logout" href="home.html#form">logout</a>
+                </div>
             </div>
-            <div class="nav-bar">
-                <a href="home.html">home</a>
-                <a href="about.html" target="blank">about</a>
-            </div>
-        </div>
-    </header>
-    <aside>
-        <div class="side-menu">
-            <div class="semester">
-                <label for="sem">semester</label>
-                <input type="checkbox" name="1" id="1">
-                <label for="1">1</label>
-                <input type="checkbox" name="2" id="2">
-                <label for="2">2</label>
-                <input type="checkbox" name="3" id="3">
-                <label for="3">3</label>
-                <input type="checkbox" name="4" id="4">
-                <label for="4">4</label>
-                <input type="checkbox" name="5" id="5">
-                <label for="5">5</label>
-                <input type="checkbox" name="6" id="6">
-                <label for="6">6</label>
-                <input type="checkbox" name="7" id="7">
-                <label for="7">7</label>
-                <input type="checkbox" name="8" id="8">
-                <label for="8">8</label>
-            </div>
-            <div class="branch">
-                <label for="branch">branch</label>
-                <input type="checkbox" name="cse" id="cse">
-                <label for="cse">computer science</label>
-                <input type="checkbox" name="cse-other" id="cse-other">
-                <label for="cse-other">cse-other</label>
-                <input type="checkbox" name="ece" id="ece">
-                <label for="ece">ece</label>
-                <input type="checkbox" name="ee" id="ee">
-                <label for="ee">ee</label>
-                <input type="checkbox" name="mechanical" id="mechanical">
-                <label for="mechanical">mechanical</label>
-                <input type="checkbox" name="civil" id="civil">
-                <label for="civil">civil</label>
-                <input type="checkbox" name="chemical" id="chemical">
-                <label for="chemical">chemical</label>
-                <input type="checkbox" name="biotech" id="biotech">
-                <label for="biotech">biotech</label>
-                <input type="checkbox" name="pharmacy" id="pharmacy">
-                <label for="pharmacy">pharmacy</label>
-            </div>
-            <button type="submit" id="additional">add filter</button>
-            <button id="reset">clear filter</button>
-        </div>
-    </aside>
+        <div class="user_info">
+            <table id="tablebody">
 
+            </table>
+        </div>
+    </section>
+    <section class="aside" id="side_menu">
+        <aside>
+            <div class="side-menu">
+                <div class="semester">
+                    <table class="sem_table">
+                        <tr>
+                            <th id="sem_th"><label id="sem" for="sem">semester</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="1" id="1"></td>
+                            <th><label for="1">1</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="2" id="2"></td>
+                            <th><label for="2">2</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="3" id="3"></td>
+                            <th><label for="3">3</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="4" id="4"></td>
+                            <th><label for="4">4</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="5" id="5"></td>
+                            <th><label for="5">5</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="6" id="6"></td>
+                            <th><label for="6">6</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="7" id="7"></td>
+                            <th><label for="7">7</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="8" id="8"></td>
+                            <th><label for="8">8</label></th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="branch">
+                    <table class="branch_table">
+                        <tr>
+                            <th><label id="branch" for="branch">branch</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="cse" id="cse"></td>
+                            <th><label for="cse">computer science</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="cse-other" id="cse-other"></td>
+                            <th><label for="cse-other">cse-other</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="ece" id="ece"></td>
+                            <th><label for="ece">ece</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="ee" id="ee"></td>
+                            <th><label for="ee">ee</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="mechanical" id="mechanical"></td>
+                            <th><label for="mechanical">mechanical</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="civil" id="civil"></td>
+                            <th><label for="civil">civil</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="chemical" id="chemical"></td>
+                            <th><label for="chemical">chemical</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="biotech" id="biotech"></td>
+                            <th><label for="biotech">biotech</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="pharmacy" id="pharmacy"></td>
+                            <th><label for="pharmacy">pharmacy</label></th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <button type="submit" id="additional">add filter</button>
+                    <button type="reset" id="reset">clear filter</button>
+                </div>
+            </div>
+        </aside>
+    </section>
+    <section id="books">
+        <div class="books_list">
+            <div class="button_bar">
+                <button id="all">all</button>
+                <button id="sub1">subject1</button>
+                <button id="sub2">subject2</button>
+                <button id="sub3">subject3</button>
+                <button id="sub4">subject4</button>
+                <button id="sub5">subject5</button>
+                <button id="sub6">subject6</button>
+            </div>
+            <div class="book1">
+                <img src="" alt="">
+            </div>
+        </div>
+    </section>
 </body>
 <script src="js/books.js"></script>
+
 </html>
