@@ -79,10 +79,9 @@ function books(sem, subject) {
 }
 
 function buttons(sem) {
-    let semlist = { "1": "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth", 6: "sixth" }
     button={1:button1,2:button2,3:button3,4:button4,5:button5,6:button6}
     let count=1
-    let sub = a[semlist[sem]].subjects
+    let sub = a[sem].subjects
     sub.forEach(element => {
         substr = `${element}`
         assume=button[count]
@@ -102,9 +101,8 @@ function all_sub(sem){
 }
 
 function all(user) {
-    let semlist = { "1": "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth", 6: "sixth" }
     user.forEach(bnl => {
-        sem = all_sub([semlist[bnl]])
+        sem = all_sub([bnl])
         sem.forEach(element => {
             final=books(element[0], element[1])
         });
@@ -129,46 +127,94 @@ function button_update(button) {
         }
     });
 }
+function checkedradio(sem,branch) {
+    document.getElementById(sem).checked=true
+    document.getElementById(branch).checked=true
+}
+function checkfilter() {
+    let semlist = { "1": "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth", 6: "sixth",7:"seventh",8:"eighth"}
+    if (localStorage.getItem('final')==null) {
+        elementstr=localStorage.getItem('temp')
+        element=JSON.parse(elementstr)
+        sem=semlist[element.sem]
+        return([sem,element.branch])
+    }
+    else{
+        elementstr=localStorage.getItem('final')
+        element=JSON.parse(elementstr)
+        return([element[0],element[1]])
+    }
+}
+function update() {
+    element=checkfilter()
+    pta=element[0]
+    all([pta])
+    buttons(pta)
+    checkedradio(pta,element[1])
+}
 
 
-Elementstr=localStorage.getItem("temp")
-element=JSON.parse(Elementstr)
-let semlist = { 1: "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth", 6: "sixth" }
-buttonSub=a[semlist[element.sem]].subjects
-all([element.sem])
-buttons(element.sem)
+element=checkfilter()
+pta=element[0]
+buttonSub=a[pta].subjects
+console.log(element)
+update()
 buttonAll = document.getElementById('all')
 buttonAll.addEventListener("click", ()=>{
-    all([element.sem])
+    all([pta])
     button_update("all")
 })
 button6 = document.getElementById('sub6')
 button6.addEventListener("click", ()=>{
-    single(semlist[element.sem],buttonSub[5])
+    single(pta,buttonSub[5])
     button_update("sub6")
 })
 button1 = document.getElementById('sub1')
 button1.addEventListener("click", ()=>{
-    single(semlist[element.sem],buttonSub[0])
+    console.log(element[0],buttonSub[0])
+    single(pta,buttonSub[0])
     button_update("sub1")
 })
 button2 = document.getElementById('sub2')
 button2.addEventListener("click", ()=>{
-    single(semlist[element.sem],buttonSub[1])
+    single(pta,buttonSub[1])
     button_update("sub2")
 })
 button3 = document.getElementById('sub3')
 button3.addEventListener("click", ()=>{
-    single(semlist[element.sem],buttonSub[2])
+    single(pta,buttonSub[2])
     button_update("sub3")
 })
 button4 = document.getElementById('sub4')
 button4.addEventListener("click", ()=>{
-    single(semlist[element.sem],buttonSub[3])
+    single(pta,buttonSub[3])
     button_update("sub4")
 })
 button5 = document.getElementById('sub5')
 button5.addEventListener("click", ()=>{
-    single(semlist[element.sem],buttonSub[4])
+    single(pta,buttonSub[4])
     button_update("sub5")
+})
+
+filterAdd= document.getElementById('additional')
+filterAdd.addEventListener("click",()=>{
+    semlist=["first",'second','third','fourth','fifth','sixth','seventh','eighth']
+    branchlist=['cse','cse-other','ece','ee','mechanical','civil','chemical','biotech','pharmacy']
+    for (let index = 0; index < semlist.length; index++){
+        articlestr = document.getElementById(semlist[index])
+        if (articlestr.checked == true) {
+            finalSem=semlist[index]
+            break
+        }
+    }
+    for (let index = 0; index < branchlist.length; index++) {
+        articlestr = document.getElementById(branchlist[index])
+        if (articlestr.checked == true) {
+            finalbranch=branchlist[index]
+            break
+        }
+    }
+    final=[finalSem,finalbranch]
+    localStorage.setItem('final',JSON.stringify(final))
+    update()
 })

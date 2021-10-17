@@ -211,6 +211,7 @@ body{
     border-radius: 15px;
     padding: 1%;
     margin: 1%;
+    position: relative;
 }
 
 .book1 a{
