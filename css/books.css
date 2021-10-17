@@ -96,7 +96,7 @@ body{
 }
 
 .aside{
-    width: 15%;
+    width: 20%;
     background-color: rgba(124, 124, 124, 0.123);
     border-radius: 15px;
     padding-left: 1.5%;
@@ -104,6 +104,11 @@ body{
 
 .semester{
     display: table;
+    margin-bottom: 5%;
+}
+
+.branch{
+    margin-bottom: 5%;
 }
 
 .sem_table{
@@ -127,7 +132,6 @@ body{
 }
 
 .branch_table{
-    margin-top: 5%;
     border: 1px grey solid;
     border-radius: 8px;
 }
@@ -209,6 +213,10 @@ body{
     margin: 1%;
 }
 
+.book1 a{
+    text-decoration: none;
+}
+
 .book1 img{
     max-width:150px ;
     max-height: 200px;
@@ -221,12 +229,21 @@ body{
     margin-right: auto;
 }
 
-.book1 figcaption{
+.book1 a figcaption p{
     text-transform: capitalize;
-    text-decoration: none;
+    color: black;
+    font-weight: bold;
     text-align: center;
     text-overflow: clip;
     overflow-wrap:normal;
+}
+
+.book1:hover{
+    zoom: 101%;
+}
+
+.book1 a figcaption{
+    text-align: center;
 }
 
 

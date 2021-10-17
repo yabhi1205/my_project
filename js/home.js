@@ -12,14 +12,34 @@ function tempinfo() {
 }
 function notPresent(element) {
     let my_eroor = { f_naam: "label_naam", m_naam: "label_naam", l_naam: "label_naam", roll: "label_roll", library: "label_library", branch: "label_branch" }
-    let my_eroor_dark = { f_naam: "tr_naam", m_naam:"tr_naam",l_naam:"tr_naam", roll: "tr_roll", library: "tr_library", branch: "tr_branch" }
+    let my_eroor_dark = { f_naam: "tr_naam", m_naam: "tr_naam", l_naam: "tr_naam", roll: "tr_roll", library: "tr_library", branch: "tr_branch" }
     let a = my_eroor[element]
     let b = my_eroor_dark[element]
     document.getElementById(a).style.color = "red";
-    console.log(b)
     document.getElementById(b).style.backgroundColor = "rgba(0,0,0, .1)";
-    let error_element = [a, b]
-    localStorage.setItem('error_element', JSON.stringify(error_element))
+    if (localStorage.getItem('error_element') == null) {
+        let error_element = [[a, b]]
+        console.log(error_element)
+        localStorage.setItem('error_element', JSON.stringify(error_element))
+    }
+    else {
+        errorStr = localStorage.getItem('error_element')
+        error_element = JSON.parse(errorStr)
+        new_element = [a, b]
+        for (let index = 0; index < error_element.length; index++) {
+            console.log(error_element[index])
+            console.log(new_element)
+            errorb=error_element[index]
+            for (let i = 0; i < 2; i++) {
+                if (errorb[i] == new_element[i]) {
+                    return
+                }
+            }
+        }
+            console.log("in the else part", error_element)
+            error_element.push([a, b])
+            localStorage.setItem('error_element', JSON.stringify(error_element))
+    }
 }
 function update() {
     let a = localStorage.getItem('error_element')
@@ -28,8 +48,11 @@ function update() {
         return
     }
     else {
-        document.getElementById(abhi[0]).style.color = "black"
-        document.getElementById(abhi[1]).style.backgroundColor = 'rgba(0,0,0,0)';
+        console.log(abhi)
+        abhi.forEach(element => {
+            document.getElementById(element[0]).style.color = "black"
+            document.getElementById(element[1]).style.backgroundColor = 'rgba(0,0,0,0)';            
+        });
     }
 }
 function specific(element) {
@@ -37,7 +60,7 @@ function specific(element) {
     if (element == "f_naam" || element == "l_naam" || element == "m_naam") {
         a = document.getElementById(element).value
         for (let index = 0; index < a.length; index++) {
-            if(a[index]==null||a[index]==""){
+            if (a[index] == null || a[index] == "") {
                 console.log("bnl")
                 alert("hi")
                 return false
@@ -78,7 +101,7 @@ function specific(element) {
         for (let index = 0; index < 7; index++) {
             if (index < 2) {
                 if (a[index] == "" || a[index] == null || isNaN(a[index])) {
-                    alert("Invalid library number")
+                    alert("Invalid library number \nFormat Example ( 20CS001 )")
                     notPresent(element)
                     return false;
                 }
@@ -86,14 +109,13 @@ function specific(element) {
             if (index > 1) {
                 if (index < 4) {
                     if (a[index] == "" || a[index] == null || !isNaN(a[index])) {
-                        alert("Invalid library number")
+                        alert("Invalid library number \nFormat Example ( 20CS001 )")
                         notPresent(element)
                         return false;
                     }
-                    else if(isNaN(a[index])){
+                    else if (isNaN(a[index])) {
                         for (const x of symbols) {
                             if (a[index] == x) {
-                                console.log("this is in loop")
                                 alert("You can't enter symbols in name")
                                 notPresent(element)
                                 return false;
@@ -103,7 +125,7 @@ function specific(element) {
                 }
                 else if (index > 3) {
                     if (a[index] == "" || a[index] == null || isNaN(a[index])) {
-                        alert("Invalid library number")
+                        alert("Invalid library number \nFormat Example ( 20CS001 )")
                         notPresent(element)
                         return false;
                     }
@@ -125,8 +147,8 @@ function check() {
             alert("Please fill all the entry")
             return false
         }
-        pta=specific(element)
-        if(pta==false){
+        pta = specific(element)
+        if (pta == false) {
             return false
         }
     }
@@ -138,5 +160,6 @@ add.addEventListener("click", () => {
     if (fill == true) {
         console.log("abhinav yadav")
         tempinfo()
+        localStorage.removeItem('error_element')
     }
 })
