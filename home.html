@@ -52,7 +52,7 @@
             <p>Please enter some details</p>
         </div>
         <table>
-            <form action="books.html">
+            <form id="action" action="books.html">
             <tr id="tr_naam">
                 <th><label id="label_naam" for="name">name</label></th>
                 <td>
@@ -113,7 +113,8 @@
                     <button type="reset" onclick="confirm(' Do you really want to reset the form?')">reset</button>
                 </td>
                 <td>
-                    <button onclick="check()" id="add">submit</button>
+                    <button type="button" id="add">submit</button>
+                    <button id="submit" type="submit" hidden></button>
                 </td>
             </tr>
             </form>

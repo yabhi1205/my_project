@@ -21,7 +21,7 @@
             <div class="nav-bar">
                 <a href="home.html">home</a>
                 <a href="about.html" target="blank">about</a>
-                <a onclick="logout()" id="logout" href="home.html#form">logout</a>
+                <a onclick="return confirm('Do you really want to logout?'); localStorage.removeItem('temp')" id="logout" href="home.html#form">logout</a>
             </div>
         </div>
         <div class="user_info">

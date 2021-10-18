@@ -19,7 +19,6 @@ function notPresent(element) {
     document.getElementById(b).style.backgroundColor = "rgba(0,0,0, .1)";
     if (localStorage.getItem('error_element') == null) {
         let error_element = [[a, b]]
-        console.log(error_element)
         localStorage.setItem('error_element', JSON.stringify(error_element))
     }
     else {
@@ -27,18 +26,15 @@ function notPresent(element) {
         error_element = JSON.parse(errorStr)
         new_element = [a, b]
         for (let index = 0; index < error_element.length; index++) {
-            console.log(error_element[index])
-            console.log(new_element)
-            errorb=error_element[index]
+            errorb = error_element[index]
             for (let i = 0; i < 2; i++) {
                 if (errorb[i] == new_element[i]) {
                     return
                 }
             }
         }
-            console.log("in the else part", error_element)
-            error_element.push([a, b])
-            localStorage.setItem('error_element', JSON.stringify(error_element))
+        error_element.push([a, b])
+        localStorage.setItem('error_element', JSON.stringify(error_element))
     }
 }
 function update() {
@@ -48,10 +44,9 @@ function update() {
         return
     }
     else {
-        console.log(abhi)
         abhi.forEach(element => {
             document.getElementById(element[0]).style.color = "black"
-            document.getElementById(element[1]).style.backgroundColor = 'rgba(0,0,0,0)';            
+            document.getElementById(element[1]).style.backgroundColor = 'rgba(0,0,0,0)';
         });
     }
 }
@@ -61,12 +56,10 @@ function specific(element) {
         a = document.getElementById(element).value
         for (let index = 0; index < a.length; index++) {
             if (a[index] == null || a[index] == "") {
-                console.log("bnl")
                 alert("hi")
                 return false
             }
             if (!isNaN(a[index])) {
-                console.log("hi abhinav")
                 alert("You can't enter number in name")
                 notPresent(element)
                 return false;
@@ -74,7 +67,6 @@ function specific(element) {
             else {
                 for (const x of symbols) {
                     if (a[index] == x) {
-                        console.log(element)
                         alert("You can't enter symbols in name")
                         notPresent(element)
                         return false;
@@ -147,19 +139,26 @@ function check() {
             alert("Please fill all the entry")
             return false
         }
-        pta = specific(element)
-        if (pta == false) {
-            return false
+        else {
+            pta = specific(element)
+            if (pta == false) {
+                return false
+            }
         }
     }
     return true
 }
+function forward(){
+    button=document.getElementById('submit')
+    button.click()
+}
+
 add = document.getElementById("add");
 add.addEventListener("click", () => {
     fill = check()
     if (fill == true) {
-        console.log("abhinav yadav")
         tempinfo()
+        forward()
         localStorage.removeItem('error_element')
     }
 })
