@@ -270,3 +270,8 @@ reset.addEventListener("click", () => {
     }
 }
 })
+
+function logout(){
+    confirm('Do you really want to logout?')
+    localStorage.removeItem('temp')
+}
