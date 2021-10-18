@@ -175,6 +175,9 @@ function update() {
     checkedradio(pta, element[1])
 }
 
+
+originalstr = localStorage.getItem('temp')
+original = JSON.parse(originalstr)
 localStorage.removeItem('final')
 element = checkfilter()
 pta = element[0]
@@ -243,12 +246,27 @@ filterAdd.addEventListener("click", () => {
     update()
 })
 
-reset=document.getElementById('reset')
-reset.addEventListener("click",()=>{
-    confirm("Do you really want to reset the filters?")
-    localStorage.removeItem('final')
-    element = checkfilter()
-    pta = element[0]
-    buttonSub = a[pta].subjects
-    update()
+reset = document.getElementById('reset')
+reset.addEventListener("click", () => {
+    condition = [original.sem, original.branch]
+    if (localStorage.getItem('final')==null) {
+        update()
+    }
+    else{
+        finalcheckstr=localStorage.getItem('final')
+        finalcheck=JSON.parse(finalcheckstr)
+        let semlist = { "1": "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth", 6: "sixth", 7: "seventh", 8: "eighth" }
+        checksem=condition[0]
+        if (finalcheck[0] == semlist[checksem] && finalcheck[1] == condition[1]) {
+        update()
+    }
+    else {
+        confirm("Do you really want to reset the filters?")
+        localStorage.removeItem('final')
+        element = checkfilter()
+        pta = element[0]
+        buttonSub = a[pta].subjects
+        update()
+    }
+}
 })
