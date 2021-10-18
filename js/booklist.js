@@ -242,3 +242,13 @@ filterAdd.addEventListener("click", () => {
     buttonSub = a[pta].subjects
     update()
 })
+
+reset=document.getElementById('reset')
+reset.addEventListener("click",()=>{
+    confirm("Do you really want to reset the filters?")
+    localStorage.removeItem('final')
+    element = checkfilter()
+    pta = element[0]
+    buttonSub = a[pta].subjects
+    update()
+})
