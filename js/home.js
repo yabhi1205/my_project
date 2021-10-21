@@ -81,10 +81,12 @@ function specific(element) {
         if (isNaN(a)) {
             alert("You can't enter character in roll number")
             notPresent(element)
+            return
         }
         else if (a < 2000000000000) {
             alert("Invalid roll number")
             notPresent(element)
+            return
         }
         return true
     }

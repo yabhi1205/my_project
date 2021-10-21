@@ -200,7 +200,6 @@ button1.addEventListener("click", () => {
 })
 button2 = document.getElementById('sub2')
 button2.addEventListener("click", () => {
-    console.log(pta, buttonSub[1])
     single(pta, buttonSub[1])
     button_update("sub2")
 })

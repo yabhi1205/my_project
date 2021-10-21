@@ -191,7 +191,7 @@ body{
 
 .button_bar button:hover{
     zoom:120%;
-    background-color: rgba(128, 128, 128, 0.2);
+    background-color: rgba(128, 128, 128, 0.781);
     transition: all;
     transition-duration: 1s;
     transition-timing-function: linear;
