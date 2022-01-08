@@ -83,7 +83,7 @@ function specific(element) {
             notPresent(element)
             return false
         }
-        else if (a < 2000000000000) {
+        else if (a < 1000000000000) {
             alert("Invalid roll number")
             notPresent(element)
             return false
