@@ -1,4 +1,5 @@
 /* Header */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 header{
     margin-left: 2%;
@@ -95,7 +96,7 @@ body{
     font-weight: 900;
 }
 
-#k{
+.k{
     font-size: 55px;
     font-weight: 900;
 }
