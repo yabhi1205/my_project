@@ -190,7 +190,7 @@ body{
 }
 
 .button_bar button:hover{
-    zoom:120%;
+    Zoom:120%;
     background-color: rgba(128, 128, 128, 0.781);
     transition: all;
     transition-duration: 1s;
@@ -240,7 +240,16 @@ body{
 }
 
 .book1:hover{
-    zoom: 101%;
+    Zoom: 101%;
+    background-color: rgba(12, 12, 12, 0.308);
+    color: azure;
+    transition: all;
+    transition-duration: .4s;
+    transition-timing-function: ease-out;
+}
+
+.book1:hover{
+    color: azure;
 }
 
 .book1 a figcaption{
